@@ -1,0 +1,140 @@
+<html>
+
+<head>
+    <title>hfg</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        slider {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: #1E1E1E;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        slider>* {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: #1E1E1E;
+            overflow: hidden;
+            position: absolute;
+            animation: slide 15s infinite;
+
+        }
+
+        slide:nth-child(1) {
+            left: 0%;
+            animation-delay: -1s;
+            background-image: url(https://drive.google.com/open?id=0BzoHFrfIkQ0MTlVMZUgtcGFkbGU5b091SnpjNy1qbk1vT1dn);
+            background-size: cover;
+            background-position: center;
+        }
+
+        slide:nth-child(2) {
+            animation-delay: 2s;
+            background-image: url(http://hdwpro.com/wp-content/uploads/2016/02/Free-1920x1080-Wallpaper.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        slide:nth-child(3) {
+
+            animation-delay: 5s;
+            background-image: url(http://hdwpro.com/wp-content/uploads/2016/02/Free-1920x1080-Wallpaper.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        slide:nth-child(4) {
+         
+            animation-delay: 8s;
+            background-image: url(http://hdwpro.com/wp-content/uploads/2016/02/Free-1920x1080-Wallpaper.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+        slide:nth-child(5) {
+            left: 0%;
+            animation-delay: 11s;
+            background-image: url(http://news.mit.edu/sites/mit.edu.newsoffice/files/images/2016/MIT-Earth-Dish_0.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        slide p {
+            text-align: center;
+            display: inline-block;
+            width: 100%;
+            margin: 0;
+
+        }
+
+        @keyframes slide {
+            0% {
+                left: 100%;
+                width: 100%;
+            }
+
+            5% {
+                left: 0%;
+            }
+
+            25% {
+                left: 0%;
+            }
+
+            30% {
+                left: -100%;
+                width: 100%;
+            }
+
+            30.0001% {
+                left: -100%;
+                width: 0%;
+            }
+
+            100% {
+                left: 100%;
+                width: 0%;
+            }
+        }
+    </style>
+</head>
+
+<body background="#FF1E1E1E">
+    <slider>
+        <slide>
+            <p></p>
+
+        </slide>
+        <slide>
+            <p></p>
+
+        </slide>
+        <slide>
+            <p></p>
+
+        </slide>
+        <slide>
+            <p></p>
+
+        </slide>
+        <slide>
+            <p></p>
+
+        </slide>
+    </slider>
+</body>
+
+</html>
