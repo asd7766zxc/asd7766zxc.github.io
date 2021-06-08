@@ -118,7 +118,14 @@ int main()
 			cout << "找到ㄌ 在整理後陣列ㄉ " << right <<" 且在原陣列ㄉ "<< map[right][1];
 			middle = -1;
 			break;
-		}	 
+		}	
+		else if(key == map[left][0])
+		{
+		
+			cout << "找到ㄌ 在整理後陣列ㄉ " << right <<" 且在原陣列ㄉ "<< map[right][1];
+			middle = -1;
+			break;
+		}	
 		else if( middle == (left + right ) / 2 )
 		break;
 	}
