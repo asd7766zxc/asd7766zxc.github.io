@@ -2,13 +2,12 @@
 using namespace std;
 int main()
 {
-	
-	cout << "二分搜尋法 帶原位置的那種 ㄟ嘿"<<endl;
+	cout << "Binary Search"<<endl;
 	int n = 0 ; 
-	cout <<"請輸入陣列個數:";
+	cout <<"plz input elements count:";
 	cin >> n;
-	int map[n][2]; // 儲存數對'0 -> 數值  1 -> 原位置 * 整理時附帶  
-	cout << "請輸入各元素 >>" <<endl;
+	int map[n][2]; 
+	cout << "plz input element >>" <<endl;
 	for (int i =0 ; i < n ;i++)
 	{
 		cout<<"| map["<<i<<"][0]=";
@@ -16,7 +15,7 @@ int main()
 		map[i][1] = i ;
 		
 	}
-	cout << "原陣列     (數值,位置):";
+	cout << "Original Array    (value,index):";
 	for(int i = 0 ; i < n; i++)
 	   cout << "("<<map[i][0]<<","<<map[i][1]<< ")";
 	cout << endl;
@@ -42,12 +41,12 @@ int main()
 		}
 	}
 
-	cout << "整理後陣列 (數值,位置):"; 
+	cout << "Array After Short (Value,Index):"; 
 		for(int i = 0 ; i < n; i++)
 	   cout << "("<<map[i][0]<<","<<map[i][1]<< ")";
 	
 	int key = 0; 
-	cout <<endl<< "請輸入欲尋找ㄉ數字:";
+	cout <<endl<< "input value to search:";
 	cin >> key;
 	cout << endl;
 	
@@ -56,82 +55,54 @@ int main()
 	int right = n-1;
 	int middle = (left + right ) / 2;
 	
-	while(true)
+	while(left <= right)
 	{
 		middle = (left + right ) / 2;
-		if(key > map[middle][0])
+		
+		if ( key == map[middle][0] )
 		{
-			left = middle;
+			int fpx = 0; 
+		
+			int lpx=1; 
+			int rpx=1; 
+			 	cout << "Found (Value,Short Index,Original Index) >>"<<endl;
+			 	cout << "("<<map[middle][0]<<","<<middle<<","<<map[middle][1]<<")"<<endl;
+			   while(lpx !=-2 ||rpx!=-2)
+			   {
+			   	if(middle-lpx >=0)
+			   	  if(map[middle-lpx][0] == key) 
+			   	  {
+					 	cout << "("<<map[middle-lpx][0]<<","<<middle-lpx<<","<<map[middle-lpx][1]<<")"<<endl;
+			   	  	lpx++;
+			   	  }
+				  else
+				     lpx = -2;
+				     
+				if(middle+rpx >=0)
+			   	  if(map[middle+rpx][0] == key) 
+			   	  {
+						cout << "("<<map[middle+rpx][0]<<","<<middle+rpx<<","<<map[middle+rpx][1]<<")"<<endl;	 
+			   	  	rpx++;
+			   	  }
+				  else
+				     rpx = -2;
+			       
+			   }
+			middle = -1;
+			break;
+		}	 
+		else if(key > map[middle][0])
+		{
+			left = middle+1;
 		}
 		else if ( key < map[middle][0])
 		{
-			right = middle;
-		}
-		if ( key == map[middle][0] )
-		{
-				
-			int fpx = 0; //同時延伸數 
-		//左右延伸數
-			int lpx=1; 
-			int rpx=1; 
-			 	cout << "找到ㄌ (數值,整理後陣列位置,原陣列位置) >>"<<endl;
-			 	
-			for( ; rpx + middle < n &&   middle-lpx > -1 ; fpx++ ) // check if 那啥有重複 
-			{
-				if(key != map[middle+rpx ][0] && key!=map[ middle-lpx][0] )
-				{
-					rpx--;
-					lpx--;
-					break;
-				}
-				if(fpx != 0 )
-				{
-				
-				
-					if (key == map[middle +rpx][0] ) 
-					{
-						cout << "("<<map[middle+rpx][0]<<","<<middle+rpx<<","<<map[middle+rpx][1]<<")"<<endl;
-						rpx++;
-					}
-					if (key == map[middle -lpx][0] )
-					{
-						cout << "("<<map[middle+lpx][0]<<","<<middle+lpx<<","<<map[middle+lpx][1]<<")"<<endl;
-						 lpx++;
-					}	
-				}
-				else 
-				{
-					cout << "("<<map[middle][0]<<","<<middle<<","<<map[middle][1]<<")"<<endl;
-				}
-			
-		   }
-		   //將判斷數分成左右的原因為 fpx = 左界|lpx  middle rpx    |右界 因此 在排列後的陣列中 可以輕易ㄉ找出連續的結果  
-		  
+			right = middle-1;
+		}	
 	
-		   
-			middle = -1;
-			break;
-		}	 	
-		else if(key == map[right][0])
-		{
-		
-			cout << "找到ㄌ 在整理後陣列ㄉ " << right <<" 且在原陣列ㄉ "<< map[right][1];
-			middle = -1;
-			break;
-		}	
-		else if(key == map[left][0])
-		{
-		
-			cout << "找到ㄌ 在整理後陣列ㄉ " << right <<" 且在原陣列ㄉ "<< map[right][1];
-			middle = -1;
-			break;
-		}	
-		else if( middle == (left + right ) / 2 )
-		break;
 	}
 	cout <<endl;
-	if( 	middle == (left + right ) / 2 )
-	cout << "哭阿 找不到";
-
+	if( middle == (left + right ) / 2 )
+	cout << "Cannot Found";
  } 
 
