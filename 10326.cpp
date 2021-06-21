@@ -102,7 +102,7 @@ int main()
 	
 	}
 	cout <<endl;
-	if( middle == (left + right ) / 2 )
+	if(left > right )
 	cout << "Cannot Found";
  } 
 
